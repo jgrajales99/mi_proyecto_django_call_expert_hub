@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Expert Hub</title>
+    <link id="estilos" rel="stylesheet" href="{% static 'default.css' %}">
+    <link rel="icon" href="/static/favicon-32x32.png" type="image/png">
+
+</head>
+<body>
+    <!-- Menú horizontal -->
+    <header>
+    <div class="logo">
+    <img src="{{ MEDIA_URL }}logo.png" alt="Logo de Call Expert Hub">
+</div>
+
+        <!-- Menú de navegación -->
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contacto">Contáctanos</a></li>
+                <li>
+   <li id="accesibilidad">
+    <a href="#" id="toggleAccesibilidad">Accesibilidad</a>
+    <ul id="menuAccesibilidad" class="hidden">
+        <li><button onclick="cambiarEstilo('style.css')">Estilo 1</button></li>
+        <li><button onclick="cambiarEstilo('style2.css')">Estilo 2</button></li>
+        <li><button onclick="cambiarEstilo('default.css')">Restablecer</button></li>
+    </ul>
+</li>
+
+
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="{{ MEDIA_URL }}background-video.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+    </div>
+
+    <!-- Contenido principal -->
+    <main>
+        <section id="inicio">
+            <h1>Bienvenido a Call Expert Hub</h1>
+            <p>Call Expert Hub S.A.S. es una empresa especializada en atención al cliente, ventas y soporte logístico, operando en mercados internacionales.</p>
+        </section>
+
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <ul>
+                <li>Atención al Cliente y Soporte: Respuestas rápidas y efectivas para distintos sectores.</li>
+                <li>Ventas y Agendamiento: Estrategias para conversión y fidelización de clientes.</li>
+                <li>Logística y Seguimiento: Optimización de rutas y precisión en asignaciones.</li>
+                <li>Bilingüismo: Servicios en inglés y español.</li>
+            </ul>
+        </section>
+
+        <section id="nosotros">
+            <h2>Sobre Nosotros</h2>
+            <ul>
+                <li>Misión: Ofrecer un servicio de alta calidad, con enfoque humano, transparencia y excelencia en cada interacción.</li>
+                <li>Visión: Expandir operaciones globalmente, alcanzar 6,000 colaboradores para 2030 y consolidarse como una alternativa sostenible en el sector BPO.</li>
+                <li>Equipo Directivo: Especialistas en comunicación, Expertos en servicio al cliente, Líderes en tecnología e innovación.</li>
+            </ul>
+        </section>
+
+        <section id="blog">
+    <h2>Últimas Publicaciones</h2>
+    <div id="blog-container"></div>
+</section>
+
+<!-- Enlaza el archivo JavaScript -->
+<script src="/static/blog.js"></script>
+
+
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <form action="#" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Call Expert Hub. Todos los derechos reservados.</p>
+    </footer>
+    <script src="/static/script.js"></script>
+</body>
+</html>
