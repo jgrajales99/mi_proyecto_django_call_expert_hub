@@ -85,7 +85,7 @@
 
         <section id="contacto">
             <h2>Contáctanos</h2>
-            <form action="#" method="post">
+            <form action="{% url 'contactenos' %}" method="post"> 
             {% csrf_token %}
             {{ form.as_p }}
                 <label for="nombre">Nombre:</label>
